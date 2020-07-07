@@ -7,33 +7,35 @@ New modifications in this version include use of Jackie Telson's (stevecroft/bl-
 
 To run, use smemp_multifile.ipynb.
 
-CONTENTS OF REPO:
+## CONTENTS OF REPO:
 
 README.md
 
-Specmatch_scripts 
+all_apf_non_i2.csv -> *file containing list of all APF spectra files and corresponding star names*
 
-  smemp_multifile.ipynb  -> script to run Specmatch on a directory containing APF spectra of multiple stars
-  
-  smemp_apf_test.ipynb -> run Specmatch on a single spectrum (or directory of multiple spectra for single star)
-  
-  deblaze_func.ipynb  -> deblaze target spectrum
-  
-  rescale.ipynb -> rescale spectrum
-  
-  apf_wave copy.fits  -> filts containging wavelength solutions used by Specmatch
-  
-Data 
+apf_name_conversion.csv -> *file containig filename, name in all_apf_non_i2, and HIP name of APF stars*
 
-  apf_spectra -> spectra of stars that both have APF spectra and were analyzed by Yee et al. 2017
-  
-Validation
+#### Specmatch_scripts 
 
-  validate_smemp.ipynb -> script to compare APF Specmatch results using to published values from Yee et al.
+  smemp_multifile.ipynb  -> *script to run Specmatch on a directory containing APF spectra of multiple stars*
   
-all_apf_non_i2.csv -> file containing list of all APF spectra files and corresponding star names
+  smemp_apf_test.ipynb -> *run Specmatch on a single spectrum (or directory of multiple spectra for single star)*
+  
+  deblaze_func.ipynb  -> *deblaze target spectrum*
+  
+  rescale.ipynb -> *rescale spectrum*
+  
+  apf_wave copy.fits  -> *file containing wavelength solutions used by Specmatch*
+  
+#### Data 
 
-apf_name_conversion.csv -> file containig filename, name in all_apf_non_i2, and HIP name of APF stars
+  apf_spectra -> *spectra of stars that both have APF spectra and were analyzed by Yee et al. 2017*
+  
+#### Validation
+
+  validate_smemp.ipynb -> *script to compare APF Specmatch results using to published values from Yee et al.*
+  
+
 
   
 NOTE: The current scripts need to be updated!
