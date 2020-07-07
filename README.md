@@ -7,7 +7,7 @@ New modifications in this version include use of Jackie Telson's (stevecroft/bl-
 
 To run, use smemp_multifile.ipynb.
 
-## CONTENTS OF REPO:
+### Contents of This Repository:
 
 README.md
 
@@ -20,6 +20,8 @@ apf_name_conversion.csv -> *file containig filename, name in all_apf_non_i2, and
   smemp_multifile.ipynb  -> *script to run Specmatch on a directory containing APF spectra of multiple stars*
   
   smemp_apf_test.ipynb -> *run Specmatch on a single spectrum (or directory of multiple spectra for single star)*
+  
+  specmatchemp -> the scripts needed to run Specmatch-emp, which are called by smemp_multifile and smemp_apf_test
   
   deblaze_func.ipynb  -> *deblaze target spectrum*
   
