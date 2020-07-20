@@ -1,0 +1,78 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# putting spectra that correspond to same star together\n",
+    "# 1) finds all unique HIP names of stars in the list (previously did not do this step (grouped by APF name instead); \n",
+    "#    caused issue when more than one APF name corresponded to same HIP name)\n",
+    "# 2) groups spectra files by star (using HIP name) they correspond to (if muliptle spectra for a star, puts in own \n",
+    "#    subdirectory)\n",
+    "# NOTE: Should only ever run this once.\n",
+    "\n",
+    "# getting the apf spectra files in order\n",
+    "import pandas as pd\n",
+    "import shutil\n",
+    "import os\n",
+    "apf_name_conversion = pd.read_csv('apf_name_conversion_updated.csv') # same as apf_name_conversion but has a header\n",
+    "apf_path = './APF_spectra/apf_spectra' \n",
+    "star_list = pd.read_csv('overlap_no_repeats.csv')\n",
+    "star_list = star_list['Column2']                                \n",
+    "\n",
+    "def get_filenames(starname): \n",
+    "    rows =  apf_name_conversion[apf_name_conversion['HIP_NAME'] == starname] \n",
+    "    filenames = rows[\"FILENAME\"]\n",
+    "    return filenames\n",
+    "\n",
+    "# find unique HIP names\n",
+    "star_list_HIP = []\n",
+    "for star in star_list:\n",
+    "    star_rows = apf_name_conversion[apf_name_conversion['NAME'] == star]\n",
+    "    star_list_HIP = star_list_HIP + star_rows['HIP_NAME'].tolist()\n",
+    "star_list_HIP_unique = list(dict.fromkeys(star_list_HIP))\n",
+    "\n",
+    "for star in star_list_HIP_unique: \n",
+    "    filenames = get_filenames(star)\n",
+    "    if len(filenames)>1:\n",
+    "        print(star+': ')\n",
+    "        print(filenames)\n",
+    "        dir_path = apf_path + '/' + star + '_spectra'\n",
+    "        os.mkdir(dir_path)\n",
+    "        for file in filenames:\n",
+    "            shutil.move('/home/azuckerman/APF_spectra/apf_spectra/'+file+'.fits', dir_path)\n",
+    "\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.7.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 4
+}
