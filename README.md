@@ -69,3 +69,8 @@ NOTE: the model SpecMatch-Emp must also exist in the directory. This can be obta
 
 -- Pixel_shifts --> *List of pixel shifts used during shifting method in Specmatch-Emp. For future purpose of rejected known atmopsheric lines*
   
+#### Results
+
+-- specmatch_results.csv -> *derived properties for the 101 stars in the APF calibration target set*
+
+-- README.md -> *description and locations of other intermediate data products*
