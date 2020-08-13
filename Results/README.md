@@ -3,5 +3,5 @@
    /home/azuckerman/APF_spectra/NDRR
 ##### 2) SpecMatch objects for each of the 101 APF calibration target set.
    /home/azuckerman/Specmatch_objects
-#### 3) Fits files containing normalized, deblazed target spectra and registered wavelength scale for each of the 5869 APF spectra in the BL database.
+##### 3) Fits files containing normalized, deblazed target spectra and registered wavelength scale for each of the 5869 APF spectra in the BL database.
    /home/azuckerman/APF_spectra/NDR
