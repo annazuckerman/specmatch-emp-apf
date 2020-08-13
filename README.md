@@ -1,9 +1,9 @@
 # specmatch-emp-apf
 Summer 2020 Breakthrough Listen Internship project.
 
-This verions of specmatch-emp uses Cameron Nunez's modifications and additions (stevecroft/bl-interns/cameronn) to Samuel Yee's (samuelyeewl/specmatch-emp) Specmatch-Emp model.
+This verion of specmatch-emp uses Cameron Nunez's modifications and additions (stevecroft/bl-interns/cameronn) to Samuel Yee's (samuelyeewl/specmatch-emp) Specmatch-Emp model.
 Cameron's modifications allowed the model to read in APF spectra instead of Keck HIRES spectra.
-New modifications in this version include use of Jackie Telson's (stevecroft/bl-interns/jackietel) deblazing function written in python instead of the original R deblazing function, modification to allow the script to run on a directory containing spectra of mulitple stars (and output results for each star), slight changes to allow the model to work in my python environment (for example, python verion compatibility issues).
+New modifications in this version include: use of Jackie Telson's (stevecroft/bl-interns/jackietel) deblazing function written in python instead of the original R deblazing function (highly modifed to use a different method of deblazing); modification to allow the script to run on a directory containing spectra of mulitple stars (and output results for each star); new outputs including the normalized, deblazed target, residual between target and linear combination of best matched spectra and registered wavelength scale;  and slight changes to allow the model to work in my python environment (for example, python verion compatibility issues).
 
 See project write-up for further details about the scripts, data, methods, and (preliminary) results of this project
 
@@ -17,13 +17,15 @@ README.md
 
 -- smemp_multifile.ipynb  -> *script to run Specmatch on a directory containing APF spectra of multiple stars*
   
--- specmatchemp -> the scripts needed to run Specmatch-emp, which are called by smemp_multifile and smemp_apf_test (ADD THIS)
-  
 -- bstar_deblaze.ipynb  -> *deblaze target spectrum*
   
 -- rescale.ipynb -> *rescale spectrum*
   
 -- apf_wave copy.fits  -> *file containing wavelength solutions used by Specmatch*
+
+-- bstar_blaze_funcs.csv -> *APF blaze functions derived from rapidly rotating B-stars*
+
+NOTE: the model SpecMatch-Emp must also exist in the directory. This can be obtained from https://github.com/samuelyeewl/specmatch-emp, and is located on the Breakthrough Listen datacenter at /home/mattl/.specmatchemp. 
   
 #### Data 
 
@@ -33,9 +35,13 @@ README.md
 
 #### Calibration
 
--- validate_smemp.ipynb -> *script to compare APF Specmatch results using to published values from Yee et al.*
+-- calibrate_smemp.ipynb -> *script to compare APF Specmatch results using to published values from Yee et al.*
   
 -- yee_library_full.csv -> *properties for Yee et al. catalog stars*
+
+#### Laser Line Search
+
+-- laser_line_search2.py -> *WORK IN PROGRESS. Current version of laser line search algorithm, implemented loosely following David Lipman's algorithm.*
   
 #### Supporting Files
 
@@ -50,11 +56,16 @@ README.md
 -- check_file_labeling.ipynb -> *check naming conventions within spectra files or that each file in a directory is for the same star*
   
 -- get_all_norm_deblazed.ipynb -> *get normalized, deblazed spectra for input spectra*
+
+-- get_all_NDR.ipynb -> *get normalized, deblazed spectra and registered wavelenght scales for input spectra*
   
 -- group_by_SNR.ipynb -> *with set of files grouped by star (as by group_spectra.ipynb), saves new directory of highest SNR set for each*
   
 -- group_spectra.ipynb -> *groups spectra file such that if mulitple files per star, creates directory and groups those files*
   
--- smemp_keck_and_apf.ipynb -> *NOTE YET WORKING script to run Specmatch on either Keck or APF spectra*
+-- smemp_keck_and_apf.ipynb -> *WORK IN PROGRESS. script to run Specmatch on either Keck or APF spectra*
   
-NOTE: The current scripts need to be updated!
+-- Star_list.csv --> *List of HIP names of stars in APF calibration target set*  
+
+-- Pixel_shifts --> *List of pixel shifts used during shifting method in Specmatch-Emp. For future purpose of rejected known atmopsheric lines*
+  
